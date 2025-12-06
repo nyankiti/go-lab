@@ -12,6 +12,8 @@ importers:
         specifier: ^2.6.3
         version: 2.6.3
 
+  apps/api-gateway: {}
+
   apps/frontend:
     dependencies:
       react:

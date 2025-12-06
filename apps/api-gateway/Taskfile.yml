@@ -1,0 +1,35 @@
+version: '3'
+
+vars:
+  BIN_NAME: server
+  OUTPUT_DIR: dist
+  CMD_PATH: ./cmd/main.go
+
+tasks:
+  dev:
+    desc: "アプリケーションを開発モードで実行します"
+    cmds:
+      - go run {{.CMD_PATH}}
+    sources:
+      - '**/*.go'
+
+  build:
+    desc: "アプリケーションのバイナリをビルドします"
+    cmds:
+      - go build -o {{.OUTPUT_DIR}}/{{.BIN_NAME}} {{.CMD_PATH}}
+    sources:
+      - '**/*.go'
+
+  lint:
+    desc: "go vet と golangci-lint を実行します"
+    cmds:
+      - go vet ./...
+      - golangci-lint run ./...
+    sources:
+      - '**/*.go'
+
+  test:
+    desc: "単体テストを実行します"
+    method: none      # テストは毎回走らる
+    cmds:
+      - go test -v ./...

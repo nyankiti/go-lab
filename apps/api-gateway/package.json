@@ -1,8 +1,9 @@
 {
   "name": "api-gateway",
   "version": "0.0.0",
-  "scripts": {
-    "build": "go build -o dist/server ./cmd",
-    "dev": "go run ./cmd/main.go"
+"scripts": {
+    "build": "task build",
+    "dev": "task dev",
+    "lint": "task lint"
   }
 }
