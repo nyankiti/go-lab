@@ -1,0 +1,6 @@
+go 1.25.5
+
+use (
+	./apps/api-gateway
+	./packages/go-utils
+)
